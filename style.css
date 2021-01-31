@@ -124,6 +124,10 @@ button.btn-special:hover {
   border-radius: var(--corners-big);
 }
 
+.kitten-name {
+  font-family: 'Mansalva', cursive;
+}
+
 .shadow {
   filter: drop-shadow(var(--shadow));
 }
@@ -152,6 +156,9 @@ button.btn-special:hover {
   pointer-events: none;
 }
 
+.bg-light {
+  background-color: var(--light);
+}
 .bg-dark {
   background-color: var(--dark);
 }

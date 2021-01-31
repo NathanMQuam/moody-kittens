@@ -1,17 +1,17 @@
 /** TODO TASK LIST
  * ======== | Visualization | ========
  * [ DONE ] Users must have a form where they enter in at minimum the name of a kitten
- * [ TODO ] A Kitten's name and mood must be visible for the user
+ * [ DONE ] A Kitten's name and mood must be visible for the user
  * [ DONE ] A custom Google Font must be added
- * [ TODO ] Kittens are visible when the page reloads
- * [ TODO ] A Kitten's mood must affect visually the apperance of the kitten
+ * [ DONE ] Kittens are visible when the page reloads
+ * [ DONE ] A Kitten's mood must affect visually the apperance of the kitten
  * 
  * ======== |  Functionality | ========
  * [ DONE ] Add Kitten form clears when submitted
  * [ DONE ] Add Kitten form submission does not reload the page
  * [ DONE ] Kittens are stored in local storage.
  * [ TODO ] Kittens can be deleted
- * [ TODO ] Kittens have at least two buttons that affect the kitten's mood in different ways
+ * [ DONE ] Kittens have at least two buttons that affect the kitten's mood in different ways
  * [ DONE ] Kitten's moods persist through page reloads
  */
 
@@ -79,7 +79,6 @@ function loadKittens () {
   drawKittens();
 }
 
-// TODO: 
 /**
  * Draw all of the kittens to the kittens element
  */
@@ -88,28 +87,30 @@ function drawKittens () {
 
   kittens.forEach( kitty => {
     template += `
-      <div class="container justify-content-center card shadow bg-dark text-light kitten happy">
-      <img src="https://robohash.org/test-1139935-6310616?set=set4" alt="Test Kitten">
-      <h2>Test</h2>
+      <div class="container justify-content-center card shadow bg-dark text-light kitten ${kitty.mood}">
+      <img src="https://robohash.org/${kitty.name}-${kitty.id}?set=set4" alt="${kitty.name} Kitten">
+      <h2 class="kitten-name">${kitty.name}</h2>
       <!-- THIS DIV IS ONLY FOR DEVELOPMENT AND DEBUGGING-->
       <div class="bg-light text-dark">
         <p>
-          Mood: <span>#</span>
+          Mood: <span>${kitty.mood}</span>
         </p>
         <p>
-          Affection: <span>#</span>
+          Affection: <span>${kitty.affection}</span>
         </p>
       </div>
-      <p class="d-flex space-between interact-buttons">
-        <button class="text-dark">Pet</button>
-        <button class="text-dark">Feed</button>
+      <p class="d-flex space-between interact-buttons ${( ( kitty.mood == "gone" ) ? "hidden" : "" )}" id="${kitty.id}-buttons">
+        <button class="text-dark" onclick='pet(\"${kitty.id}\")'>Pet</button>
+        <button class="text-dark" onclick='feed(\"${kitty.id}\")'>Feed</button>
       </p>
-      <p class="hidden">
+      <p class="${((kitty.mood == "gone") ? "" : "hidden")}" id="${kitty.id}-gone">
         This Kitty has run away 3:
       </p>
     </div>
     `
   } );
+
+  document.getElementById( "kittens" ).innerHTML = template;
 }
 
 /**
@@ -137,6 +138,26 @@ function pet ( id ) {
     findKittenById( id ).affection--;
   }
 
+  setKittenMood( findKittenById( id ) );
+
+  saveKittens();
+}
+/**
+ * Find the kitten in the array of kittens
+ * Generate a random Number
+ * if the number is greater than .3
+ * increase the kittens affection
+ * otherwise do nothing
+ * save the kittens
+ * @param {string} id
+ */
+function feed ( id ) {
+  if ( Math.random() > 0.3 && findKittenById( id ).affection <= 8 ) {
+    findKittenById( id ).affection++;
+  }
+
+  setKittenMood( findKittenById( id ) );
+
   saveKittens();
 }
 
@@ -149,20 +170,30 @@ function pet ( id ) {
  */
 function catnip ( id ) {
   findKittenById( id ).affection = 5;
+
+  setKittenMood( findKittenById( id ) );
+
   saveKittens();
 }
 
-// TODO: 
 /**
  * Sets the kittens mood based on its affection
  * Happy > 6, Tolerant <= 5, Angry <= 3, Gone <= 0
  * @param {Kitten} kitten
  */
 function setKittenMood ( kitten ) {
-  
+  if ( kitten.affection > 6 ) {
+    kitten.mood = "happy";
+  } else if ( kitten.affection >= 5 ) {
+    kitten.mood = "tolerant";
+  } else if ( kitten.affection >= 3 ) {
+    kitten.mood = "angry";
+  } else if ( kitten.affection <= 0 ) {
+    kitten.mood = "gone";
+  }
+
+  saveKittens();
 }
-
-
 
 function getStarted () {
   document.getElementById( "welcome" ).remove();
