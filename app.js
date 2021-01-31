@@ -90,15 +90,6 @@ function drawKittens () {
       <div class="container justify-content-center card shadow bg-dark text-light kitten ${kitty.mood}">
       <img src="https://robohash.org/${kitty.name}-${kitty.id}?set=set4" alt="${kitty.name} Kitten">
       <h2 class="kitten-name">${kitty.name}</h2>
-      <!-- THIS DIV IS ONLY FOR DEVELOPMENT AND DEBUGGING-->
-      <div class="bg-light text-dark">
-        <p>
-          Mood: <span>${kitty.mood}</span>
-        </p>
-        <p>
-          Affection: <span>${kitty.affection}</span>
-        </p>
-      </div>
       <p class="d-flex space-between interact-buttons ${( ( kitty.mood == "gone" ) ? "hidden" : "" )}" id="${kitty.id}-buttons">
         <button class="text-dark" onclick='pet(\"${kitty.id}\")'>Pet</button>
         <button class="text-dark" onclick='feed(\"${kitty.id}\")'>Feed</button>
