@@ -34,9 +34,30 @@ main {
 }
 #welcome {
   min-height: calc(95vh - (120px + 80px));
+  position: absolute;
+  z-index: 100;
 }
 footer {
   height: 120px;
+}
+#delete-kittens-button {
+  position: absolute;
+  right: 2em;
+  background-color: var(--danger);
+  border-radius: 50%;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  padding: 1.5em;
+  border: none;
+  box-shadow: var(--shadow);
+  z-index: 999;
+  outline: none;
+}
+
+#delete-kittens-button:hover {
+  box-shadow: 2px 0 10px #158ae9b3;
+  background-color: var(--primary-lighten);
 }
 
 p {
