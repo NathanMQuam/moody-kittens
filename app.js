@@ -16,12 +16,6 @@
  */
 
 /**
- * @typedef {{id: string, name: string, mood: string, affection: number}} Kitten
- * Mood and Affection are whole numbers between 0 and 100
- * 50 is the neutral baseline
- */
-
-/**
  * Stores the list of kittens
  * @type {Kitten[]}
  */
@@ -44,9 +38,10 @@ function addKitten ( event ) {
   let newKitten = {
     id: newId,
     name: form.name.value,
-    mood: generateNumber( 30, 80 ),
-    affection: generateNumber( 0, 60 )
+    mood: "",
+    affection: generateNumber( 4, 8 )
   }
+  setKittenMood( newKitten );
 
   kittens.push( newKitten );
   //console.log( kittens );
@@ -88,7 +83,34 @@ function loadKittens () {
 /**
  * Draw all of the kittens to the kittens element
  */
-function drawKittens () { }
+function drawKittens () {
+  let template = "";
+
+  kittens.forEach( kitty => {
+    template += `
+      <div class="container justify-content-center card shadow bg-dark text-light kitten happy">
+      <img src="https://robohash.org/test-1139935-6310616?set=set4" alt="Test Kitten">
+      <h2>Test</h2>
+      <!-- THIS DIV IS ONLY FOR DEVELOPMENT AND DEBUGGING-->
+      <div class="bg-light text-dark">
+        <p>
+          Mood: <span>#</span>
+        </p>
+        <p>
+          Affection: <span>#</span>
+        </p>
+      </div>
+      <p class="d-flex space-between interact-buttons">
+        <button class="text-dark">Pet</button>
+        <button class="text-dark">Feed</button>
+      </p>
+      <p class="hidden">
+        This Kitty has run away 3:
+      </p>
+    </div>
+    `
+  } );
+}
 
 /**
  * Find the kitten in the array by its id
@@ -99,7 +121,6 @@ function findKittenById ( id ) {
   return kittens.find( k => k.id == id );
 }
 
-// TODO: 
 /**
  * Find the kitten in the array of kittens
  * Generate a random Number
@@ -109,9 +130,16 @@ function findKittenById ( id ) {
  * save the kittens
  * @param {string} id
  */
-function pet ( id ) { }
+function pet ( id ) {
+  if ( Math.random() > 0.7 ) {
+    findKittenById( id ).affection++;
+  } else {
+    findKittenById( id ).affection--;
+  }
 
-// TODO: 
+  saveKittens();
+}
+
 /**
  * Find the kitten in the array of kittens
  * Set the kitten's mood to tolerant
@@ -119,7 +147,10 @@ function pet ( id ) { }
  * save the kittens
  * @param {string} id
  */
-function catnip ( id ) { }
+function catnip ( id ) {
+  findKittenById( id ).affection = 5;
+  saveKittens();
+}
 
 // TODO: 
 /**
@@ -127,7 +158,11 @@ function catnip ( id ) { }
  * Happy > 6, Tolerant <= 5, Angry <= 3, Gone <= 0
  * @param {Kitten} kitten
  */
-function setKittenMood ( kitten ) { }
+function setKittenMood ( kitten ) {
+  
+}
+
+
 
 function getStarted () {
   document.getElementById( "welcome" ).remove();
