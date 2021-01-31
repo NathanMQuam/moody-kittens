@@ -12,7 +12,8 @@
   --light: #fdfdfd;
   --danger: #ff3737;
   --shadow: 2px 0 5px rgba(49, 49, 49, 0.5);
-  --corners: 0;
+  --corners-big: 6px;
+  --corners-small: 3px;
 }
 
 body {
@@ -74,7 +75,7 @@ button {
   background-color: var(--primary);
   color: var(--light);
   border: none;
-  border-radius: var(--corners);
+  border-radius: var(--corners-small);
   box-shadow: var(--shadow);
   text-transform: uppercase;
   transition: all 0.2s ease;
@@ -120,7 +121,7 @@ button.btn-special:hover {
   background-color: var(--light);
   padding: 1em;
   box-shadow: var(--shadow);
-  border-radius: var(--corners);
+  border-radius: var(--corners-big);
 }
 
 .shadow {
@@ -130,6 +131,9 @@ button.btn-special:hover {
 .kitten img {
   filter: drop-shadow(2px 4px 6px #1b1b1b);
   transition: all 0.35s ease;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .kitten.happy img {
   filter: drop-shadow(2px 4px 6px #00ffb3);
@@ -138,10 +142,10 @@ button.btn-special:hover {
   filter: drop-shadow(2px 4px 6px #646464);
 }
 .kitten.angry img {
-  filter: drop-shadow(2px 4px 6px #ff0000) contrast(1);
+  filter: drop-shadow(2px 4px 6px #ff0000) contrast(1) brightness(1);
 }
 .kitten.gone img {
-  filter: drop-shadow(2px 4px 6px #ff0000) contrast(0);
+  filter: drop-shadow(2px 4px 6px #ff0000) contrast(0) brightness(0.25);
 }
 .kitten.gone {
   color: var(--danger);
@@ -153,6 +157,9 @@ button.btn-special:hover {
 }
 .text-light {
   color: var(--light);
+}
+.text-dark {
+  color: var(--dark);
 }
 
 .btn-dark {
@@ -192,6 +199,11 @@ button.btn-special:hover {
 }
 .d-flex.justify-content-center {
   justify-content: center;
+}
+
+.interact-buttons {
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .mt-1 {

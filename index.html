@@ -31,7 +31,7 @@
 
 
   <main class="container">
-    <div id="welcome" class="d-flex justify-content-center">
+    <div id="welcome" class="d-flex justify-content-center hidden">
       <div class="card p-2 text-center w-50">
         <img src="moody-logo.png" height="250" alt="Moody Kittens">
         <div class="mt-2">
@@ -45,8 +45,27 @@
     </div>
 
     <div class="p-2">
-      <div id="kittens" class="d-flex align-items-center flex-wrap">
-        
+      <div id="kittens" class="d-flex align-items-center">
+        <div id="1139935-6310616" class="container justify-content-center card shadow bg-dark text-light kitten happy">
+          <img src="https://robohash.org/test-1139935-6310616?set=set4" alt="Test Kitten">
+          <h2>Test</h2>
+          <!-- THIS DIV IS ONLY FOR DEVELOPMENT AND DEBUGGING-->
+          <div>
+            <p>
+              Mood: <span>#</span>
+            </p>
+            <p>
+              Affection: <span>#</span>
+            </p>
+          </div>
+          <p class="d-flex space-between interact-buttons">
+            <button class="text-dark">Pet</button>
+            <button class="text-dark">Feed</button>
+          </p>
+          <p class="hidden">
+            This Kitty has run away 3:
+          </p>
+        </div>
       </div>
     </div>
   </main>
@@ -54,7 +73,7 @@
 
 
   <footer class="card bg-dark text-light p-2 d-flex align-items-center justify-content-center">
-    <small>Created with <span style="color: var(--primary)">&hearts;</span> by CodeWorks</small>
+    <small>Created with <span style="color: var(--primary)">&hearts;</span> by CodeWorks & Nathan Quam</small>
   </footer>
 
   <script src="app.js"></script>
