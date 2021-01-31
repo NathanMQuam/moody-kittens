@@ -1,3 +1,20 @@
+/** TODO TASK LIST
+ * ======== | Visualization | ========
+ * [ TODO ] Users must have a form where they enter in at minimum the name of a kitten
+ * [ TODO ] A Kitten's name and mood must be visible for the user
+ * [ TODO ] A custom Google Font must be added
+ * [ TODO ] Kittens are visible when the page reloads
+ * [ TODO ] A Kitten's mood must affect visually the apperance of the kitten
+ * 
+ * ======== |  Functionality | ========
+ * [ TODO ] Add Kitten form clears when submitted
+ * [ TODO ] Add Kitten form submission does not reload the page
+ * [ TODO ] Kittens are stored in local storage.
+ * [ TODO ] Kittens can be deleted
+ * [ TODO ] Kittens have at least two buttons that affect the kitten's mood in different ways
+ * [ TODO ] Kitten's moods persist through page reloads
+ */
+
 /**
  * Stores the list of kittens
  * @type {Kitten[]}
