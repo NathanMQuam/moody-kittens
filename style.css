@@ -11,6 +11,7 @@
   --dark-lighten: #504c4c;
   --light: #fdfdfd;
   --danger: #ff3737;
+  --danger-lighten: #ff5555;
   --shadow: 2px 0 5px rgba(49, 49, 49, 0.5);
   --corners-big: 6px;
   --corners-small: 3px;
@@ -22,7 +23,7 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  height: 100%;
+  max-height: 100%;
   font-family: "Roboto", sans-serif;
 }
 
@@ -31,19 +32,32 @@ header {
 }
 main {
   min-height: calc(100vh - (120px + 80px));
+  margin: 0;
 }
 #welcome {
   min-height: calc(95vh - (120px + 80px));
   position: absolute;
   z-index: 100;
 }
+.dialog-bg {
+  position:absolute;
+  background-color:rgba(49, 49, 49, 0.5);
+  width: 100%;
+  margin: 0;
+  z-index: 100;
+  height: 90%;
+}
 footer {
   height: 120px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
 }
-#delete-kittens-button {
-  position: absolute;
+
+.delete-button {
+  position: fixed;
   right: 2em;
-  background-color: var(--danger);
   border-radius: 50%;
   position: fixed;
   bottom: 1em;
@@ -53,11 +67,13 @@ footer {
   box-shadow: var(--shadow);
   z-index: 999;
   outline: none;
+  background-color: var(--danger);
+  box-shadow: var(--shadow);
 }
 
-#delete-kittens-button:hover {
-  box-shadow: 2px 0 10px #158ae9b3;
-  background-color: var(--primary-lighten);
+.delete-button:hover {
+  box-shadow: 2px 0 10px var(--danger);
+  background-color: var(--danger-lighten);
 }
 
 p {
@@ -147,12 +163,16 @@ button.btn-special:hover {
 
 .kitten-name {
   font-family: 'Mansalva', cursive;
+  overflow:hidden;
 }
 
 .shadow {
   filter: drop-shadow(var(--shadow));
 }
 
+.kitten {
+  max-width: 20%;
+}
 .kitten img {
   filter: drop-shadow(2px 4px 6px #1b1b1b);
   transition: all 0.35s ease;
@@ -300,6 +320,9 @@ button.btn-special:hover {
 
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 
 .action {

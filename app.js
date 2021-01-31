@@ -102,6 +102,10 @@ function drawKittens () {
   } );
 
   document.getElementById( "kittens" ).innerHTML = template;
+
+  if ( template ) {
+    document.getElementById( "reset-kittens-button" ).classList.remove( "hidden" );
+  }
 }
 
 /**
@@ -188,7 +192,18 @@ function setKittenMood ( kitten ) {
 
 function getStarted () {
   document.getElementById( "welcome" ).remove();
-  drawKittens();
+}
+
+function confirmReset () {
+  document.getElementById( "reset-kittens-button" ).classList.add( "hidden" );
+  document.getElementById( "confirm-reset" ).classList.remove( "hidden" );
+}
+
+function resetKitties () {
+  document.getElementById( "confirm-reset" ).classList.add( "hidden" );
+  kittens = [];
+  saveKittens();
+  console.log("Kitties reset");
 }
 
 

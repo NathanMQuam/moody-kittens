@@ -30,8 +30,8 @@
 
 
 
-  <main class="container">
-    <div id="welcome" class="d-flex justify-content-center">
+  <main>
+    <div id="welcome" class="d-flex justify-content-center dialog-bg">
       <div class="card p-2 text-center w-50">
         <img src="moody-logo.png" height="250" alt="Moody Kittens">
         <div class="mt-2">
@@ -42,6 +42,14 @@
           <button onclick="getStarted()">Get Started</button>
         </div>
       </div>
+    </div>
+
+    <div id="delete-dialog" class="p-2 container card shadow text-center hidden">
+      <p>Are you sure you want to reset all of your Kitties?</p>
+      <p class="d-flex space-between">
+        <button>No, I want to keep my Kittens!</button>
+        <button class="delete-button">Yes, reset everything</button>
+      </p>
     </div>
 
     <div class="p-2">
@@ -57,9 +65,8 @@
     <div class="d-flex align-items-center justify-content-center">
       <small>Created with <span style="color: var(--primary)">&hearts;</span> by CodeWorks & Nathan Quam</small>
     </div>
-    <button id="delete-kittens-button">
-      <i class="fas fa-power-off"></i>
-    </button>
+    <button id="reset-kittens-button" class="delete-button hidden" onclick="confirmReset()"></button>
+    <button id="confirm-reset" class="delete-button hidden" onclick="resetKitties()">Reset Kittens</button>
   </footer>
 
   <script src="app.js"></script>
