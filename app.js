@@ -3,6 +3,8 @@
  * @type {Kitten[]}
  */
 let kittens = [];
+
+// TODO: 
 /**
  * Called when submitting the new Kitten Form
  * This method will pull data from the form
@@ -14,12 +16,14 @@ let kittens = [];
  */
 function addKitten(event) {}
 
+// TODO: 
 /**
  * Converts the kittens array to a JSON string then
  * Saves the string to localstorage at the key kittens
  */
 function saveKittens() {}
 
+// TODO: 
 /**
  * Attempts to retrieve the kittens string from localstorage
  * then parses the JSON string into an array. Finally sets
@@ -27,6 +31,7 @@ function saveKittens() {}
  */
 function loadKittens() {}
 
+// TODO: 
 /**
  * Draw all of the kittens to the kittens element
  */
@@ -41,6 +46,7 @@ function findKittenById(id) {
   return kittens.find(k => k.id == id);
 }
 
+// TODO: 
 /**
  * Find the kitten in the array of kittens
  * Generate a random Number
@@ -52,6 +58,7 @@ function findKittenById(id) {
  */
 function pet(id) {}
 
+// TODO: 
 /**
  * Find the kitten in the array of kittens
  * Set the kitten's mood to tolerant
@@ -61,6 +68,7 @@ function pet(id) {}
  */
 function catnip(id) {}
 
+// TODO: 
 /**
  * Sets the kittens mood based on its affection
  * Happy > 6, Tolerant <= 5, Angry <= 3, Gone <= 0
@@ -73,11 +81,13 @@ function getStarted() {
   drawKittens();
 }
 
+// TODO: 
 /**
  * Defines the Properties of a Kitten
  * @typedef {{id: string, name: string, mood: string, affection: number}} Kitten
  */
 
+ // TODO: 
 /**
  * Used to generate a random string id for mocked
  * database generated Id

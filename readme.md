@@ -3,7 +3,7 @@ Moody Kittens
 
 ![moody-kittens](moody-logo.png)
 
-> Everyone on the internet should have an experience of the joys of owning a cat!
+> Everyone on the internet should experience the joys of owning a cat!
 
 ### Goals
 In this application you will build out a fun application that allows users the joys of owning a cat. This app is intended to ensure you as a student have learned the fundamental concepts around web development successfully graduating you out of the beginners bracket.
@@ -32,14 +32,16 @@ The basic design and layout for this app has been mocked out and the names of th
 ### Step by Step Guide
 
 1. Create a form used to add a Kitten
-1. Handle the form submission
+2. Handle the form submission
   - Prevent the page from reloading when submitting the form
   - Pull the form data to get a new kitten and give that kitten an id
   - Add the new kitten to the kittens array
   - Reset the form
   - Save the kittens list
   - Draw the kittens list
-1. Handle Page Refresh
+3. Handle Page Refresh
   - Load the kittens list
   - Draw the kittens list
-
+4. Add Buttons when Drawing Kittens
+  - Pass the kitten id to the button onclick template
+  - Don't forget to wrap the id with quotes ' '
