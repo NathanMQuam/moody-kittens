@@ -1,7 +1,7 @@
 Moody Kittens
 =============
 
-![moody-kittens](moody-logo.png)
+![moody-kittens](moody-logo.png | width=200)
 
 > Everyone on the internet should experience the joys of owning a cat!
 
